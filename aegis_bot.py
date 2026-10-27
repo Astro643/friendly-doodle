@@ -232,7 +232,7 @@ def format_entry(entry: discord.AuditLogEntry) -> dict[str, Any]:
     """Structured features only. Names and reasons are never forwarded to the AI; instead we send
     facts derived from them (was a reason given, how old was the deleted object)."""
     target_age = None
-    if entry.target_id:
+    if entry.target:
         target_age = round((entry.created_at - discord.utils.snowflake_time(entry.target_id)).total_seconds() / 86400, 2)
     return {
         "time": entry.created_at.strftime("%Y-%m-%d %H:%M:%S"),
