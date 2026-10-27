@@ -944,6 +944,9 @@ async def save_ledger(guild_id: int) -> None:
 async def init_ledger(guild: discord.Guild) -> None:
     if guild.id in bot.ledgers:
         return
+        
+    await asyncio.sleep(5.0)
+    
     ledger = GuildLedger()
     saved = await bot.store.get_json(k_ledger(guild.id))
     if isinstance(saved, dict) and saved.get("blob"):
