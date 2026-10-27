@@ -1,0 +1,4 @@
+discord.py>=2.4
+upstash-redis
+google-genai
+pydantic>=2
